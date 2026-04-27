@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Systems Architect | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0a0a0c;
+            --bg-card: #141417;
+            --neon-cyan: #00f3ff;
+            --neon-magenta: #ff00ff;
+            --text-main: #e0e0e0;
+            --text-dim: #94a3b8;
+            --border-glow: rgba(0, 243, 255, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .nav-logo {
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* --- BACKGROUND DECOR --- */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(rgba(18, 18, 20, 0.8), rgba(10, 10, 12, 0.9)),
+                        url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+            z-index: -1;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 10%;
+            background: rgba(10, 10, 12, 0.9);
+            border-bottom: 1px solid var(--border-glow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-links a {
+            color: var(--text-main);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--neon-cyan);
+            text-shadow: 0 0 8px var(--neon-cyan);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 10%;
+        }
+
+        .value-statement {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #fff, var(--neon-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: var(--text-dim);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .btn-resume {
+            padding: 1rem 2.5rem;
+            background: transparent;
+            color: var(--neon-cyan);
+            border: 2px solid var(--neon-cyan);
+            font-family: 'Orbitron', sans-serif;
+            text-decoration: none;
+            position: relative;
+            transition: 0.3s;
+            box-shadow: 0 0 15px var(--border-glow);
+        }
+
+        .btn-resume:hover {
+            background: var(--neon-cyan);
+            color: var(--bg-dark);
+            box-shadow: 0 0 30px var(--neon-cyan);
+            transform: scale(1.05);
+        }
+
+        /* --- GRID SYSTEM --- */
+        .container {
+            padding: 100px 10%;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            color: var(--neon-cyan);
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title::after {
+            content: "";
+            height: 1px;
+            flex-grow: 1;
+            background: var(--neon-cyan);
+            margin-left: 20px;
+            box-shadow: 0 0 10px var(--neon-cyan);
+        }
+
+        /* --- PROJECT CARDS (STAR METHOD) --- */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-left: 4px solid var(--neon-magenta);
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(255, 0, 255, 0.1);
+        }
+
+        .star-tag {
+            font-size: 0.7rem;
+            color: var(--neon-magenta);
+            font-weight: bold;
+            display: block;
+            margin-top: 1rem;
+        }
+
+        /* --- SKILLS & CREDIBILITY --- */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .skill-tag {
+            background: rgba(0, 243, 255, 0.1);
+            border: 1px solid var(--neon-cyan);
+            padding: 0.5rem 1rem;
+            color: var(--neon-cyan);
+            font-size: 0.8rem;
+        }
+
+        /* --- CONTACT --- */
+        .contact-box {
+            background: linear-gradient(45deg, var(--bg-card), #1a1a20);
+            padding: 3rem;
+            text-align: center;
+            border: 1px solid var(--border-glow);
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes flicker {
+            0% { opacity: 0.9; }
+            5% { opacity: 0.5; }
+            10% { opacity: 0.9; }
+            100% { opacity: 1; }
+        }
+
+        .flicker:hover {
+            animation: flicker 0.2s infinite;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .value-statement { font-size: 2.2rem; }
+            nav { padding: 1rem 5%; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-logo flicker" style="color: var(--neon-cyan);">USER_01</div>
+        <div class="nav-links">
+            <a href="#about">// ABOUT</a>
+            <a href="#projects">// PROJECTS</a>
+            <a href="#contact">// CONTACT</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1 class="value-statement">Engineering the Digital Frontier.</h1>
+        <p class="subtitle">I bridge the gap between complex backend logic and immersive user experiences. Ready to deploy high-performance solutions for your next mission.</p>
+        <a href="#" class="btn-resume">DOWNLOAD_RESUME.EXE</a>
+    </header>
+
+    <section id="about" class="container">
+        <h2 class="section-title">Core Identity</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+            <div>
+                <p style="margin-bottom: 1rem;">[SYS_BIO]: I am a results-oriented developer focused on building scalable, future-proof web architectures. I thrive at the intersection of efficiency and aesthetics.</p>
+                <div class="skills-container">
+                    <span class="skill-tag">React / Next.js</span>
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">TypeScript</span>
+                    <span class="skill-tag">Cybersecurity Essentials</span>
+                    <span class="skill-tag">AWS Cloud</span>
+                </div>
+            </div>
+            <div class="project-card" style="border-left-color: var(--neon-cyan);">
+                <h3 style="font-size: 0.9rem; margin-bottom: 0.5rem;">Certification_Log</h3>
+                <ul style="list-style: none; color: var(--text-dim); font-size: 0.85rem;">
+                    <li>> AWS Certified Solutions Architect</li>
+                    <li>> Google Professional UI/UX Design</li>
+                    <li>> Meta Frontend Developer Professional</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="container" style="background: rgba(255,0,255,0.02);">
+        <h2 class="section-title">Operations Log</h2>
+        <div class="project-grid">
+            <article class="project-card">
+                <h3>Neural-Net Dashboard</h3>
+                <span class="star-tag">SITUATION</span>
+                <p style="font-size: 0.9rem;">Company X suffered from high latency in data visualization for their global supply chain.</p>
+                <span class="star-tag">ACTION</span>
+                <p style="font-size: 0.9rem;">Architected a real-time WebSocket layer and optimized React rendering cycles.</p>
+                <span class="star-tag">RESULT</span>
+                <p style="color: var(--neon-cyan); font-weight: bold;">+40% Loading Speed | 0% Downtime</p>
+            </article>
+
+            <article class="project-card">
+                <h3>Ghost-Protocol Security</h3>
+                <span class="star-tag">SITUATION</span>
+                <p style="font-size: 0.9rem;">An e-commerce platform faced frequent credential stuffing attacks.</p>
+                <span class="star-tag">ACTION</span>
+                <p style="font-size: 0.9rem;">Implemented multi-factor biometric auth and automated bot-detection scripts.</p>
+                <span class="star-tag">RESULT</span>
+                <p style="color: var(--neon-cyan); font-weight: bold;">99.9% Reduction in unauthorized login attempts.</p>
+            </article>
+
+            <article class="project-card">
+                <h3>Nexus UI Framework</h3>
+                <span class="star-tag">SITUATION</span>
+                <p style="font-size: 0.9rem;">Internal design teams were duplicating code across 12 different sub-projects.</p>
+                <span class="star-tag">ACTION</span>
+                <p style="font-size: 0.9rem;">Developed a modular, accessible CSS-in-JS library with 50+ reusable components.</p>
+                <span class="star-tag">RESULT</span>
+                <p style="color: var(--neon-cyan); font-weight: bold;">Dev-efficiency increased by 60% across the department.</p>
+            </article>
+        </div>
+    </section>
+
+    <section id="contact" class="container">
+        <div class="contact-box">
+            <h2 style="font-family: 'Orbitron'; margin-bottom: 1rem;">Establish Connection</h2>
+            <p style="color: var(--text-dim); margin-bottom: 2rem;">Current Status: Available for High-Impact Projects</p>
+            <div style="display: flex; justify-content: center; gap: 2rem;">
+                <a href="mailto:your@email.com" style="color: var(--neon-cyan); text-decoration: none;">EMAIL</a>
+                <a href="#" style="color: var(--neon-cyan); text-decoration: none;">LINKEDIN</a>
+                <a href="#" style="color: var(--neon-cyan); text-decoration: none;">GITHUB</a>
+            </div>
+        </div>
+    </section>
+
+    <footer style="text-align: center; padding: 2rem; color: var(--text-dim); font-size: 0.7rem;">
+        &copy; 2026 // USER_01 // ENCRYPTED_PORTFOLIO
+    </footer>
+
+</body>
+</html>
