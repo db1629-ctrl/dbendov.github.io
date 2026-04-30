@@ -50,6 +50,33 @@
             font-size: 1.15rem;
             letter-spacing: 1px;
         }
+        
+        /* NEW: Container to group the button and email together */
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* NEW: Styling for the top navigation button */
+        .nav-btn {
+            display: inline-block;
+            padding: 8px 18px;
+            background: transparent;
+            color: var(--navy);
+            font-weight: 600;
+            letter-spacing: 1px;
+            font-size: 0.75rem;
+            text-decoration: none;
+            transition: 0.25s;
+            border: 2px solid var(--navy);
+            text-transform: uppercase;
+        }
+
+        .nav-btn:hover {
+            background: var(--navy);
+            color: #fff;
+        }
 
         .nav-contact { font-size: 0.85rem; color: var(--text-dim); letter-spacing: 0.5px; }
 
@@ -180,6 +207,8 @@
             .hero h1 { font-size: 1.9rem; }
             .skills-layout { grid-template-columns: 1fr; }
             .nav-contact { display: none; }
+            /* Make the button slightly smaller on mobile so it doesn't crowd the logo */
+            .nav-btn { padding: 6px 12px; font-size: 0.7rem; } 
         }
     </style>
 </head>
@@ -187,7 +216,11 @@
 
     <nav>
         <div class="nav-logo">DANIEL BEN DOV</div>
-        <div class="nav-contact">danielbendov12@gmail.com</div>
+        
+        <div class="nav-right">
+            <a href="ais-app/index.html" class="nav-btn">View AIS App</a>
+            <div class="nav-contact">danielbendov12@gmail.com</div>
+        </div>
     </nav>
 
     <header class="hero">
