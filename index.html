@@ -5,203 +5,274 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daniel Ben Dov | Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-dark: #050507;
-            --bg-card: #0f1115;
-            --neon-cyan: #00f3ff;
-            --neon-gold: #ffcc00;
-            --text-main: #e2e8f0;
-            --text-dim: #94a3b8;
-            --border-glow: rgba(0, 243, 255, 0.2);
+            --bg-main: #ffffff;
+            --bg-soft: #f7f5f0;
+            --bg-card: #ffffff;
+            --navy: #1a2e4a;
+            --navy-dark: #0f1f35;
+            --gold: #a67c2e;
+            --gold-soft: #c9a35c;
+            --text-main: #2c3e50;
+            --text-dim: #6b7280;
+            --border: #e5e7eb;
+            --border-strong: #d1d5db;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
 
         body {
-            background-color: var(--bg-dark);
+            background-color: var(--bg-main);
             color: var(--text-main);
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
+            font-family: 'Source Sans 3', sans-serif;
+            line-height: 1.7;
         }
 
-        body::before {
-            content: " ";
-            display: block;
-            position: fixed;
-            top: 0; left: 0; bottom: 0; right: 0;
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-            z-index: 200;
-            background-size: 100% 2px, 3px 100%;
-            pointer-events: none;
+        h1, h2, h3 {
+            font-family: 'Lora', Georgia, serif;
+            color: var(--navy);
+            font-weight: 600;
         }
 
         nav {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 1rem 8%; background: rgba(5, 5, 7, 0.95);
-            border-bottom: 1px solid var(--border-glow);
-            position: sticky; top: 0; z-index: 1000; backdrop-filter: blur(5px);
+            padding: 1.25rem 8%; background: var(--bg-main);
+            border-bottom: 2px solid var(--navy);
+            position: sticky; top: 0; z-index: 1000;
         }
 
-        .nav-logo { font-family: 'Orbitron'; color: var(--neon-cyan); font-weight: bold; letter-spacing: 2px; }
+        .nav-logo {
+            font-family: 'Lora', serif;
+            color: var(--navy);
+            font-weight: 700;
+            font-size: 1.15rem;
+            letter-spacing: 1px;
+        }
+
+        .nav-contact { font-size: 0.85rem; color: var(--text-dim); letter-spacing: 0.5px; }
 
         .hero {
-            height: 90vh; display: flex; flex-direction: column;
+            padding: 80px 10% 70px;
+            display: flex; flex-direction: column;
             justify-content: center; align-items: center; text-align: center;
-            padding: 0 10%; background: radial-gradient(circle at center, #111827 0%, #050507 100%);
+            background: var(--bg-soft);
+            border-bottom: 1px solid var(--border);
         }
 
-        /* PHOTO STYLING - FIXED */
         .profile-photo {
-            width: 180px;
-            height: 180px;
+            width: 160px; height: 160px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid var(--neon-cyan);
-            box-shadow: 0 0 20px var(--border-glow);
-            margin-bottom: 20px;
+            border: 3px solid var(--bg-main);
+            box-shadow: 0 4px 12px rgba(26, 46, 74, 0.15);
+            margin-bottom: 24px;
             background-color: var(--bg-card);
-            overflow: hidden;
-            font-size: 0;
-            color: transparent;
         }
 
-        .hero h1 { font-family: 'Orbitron'; font-size: 3.5rem; color: #fff; margin-bottom: 1rem; text-transform: uppercase; }
-        .hero .highlight { color: var(--neon-cyan); text-shadow: 0 0 10px var(--neon-cyan); }
-
-        .container { padding: 80px 10%; max-width: 1400px; margin: auto; }
-        
-        .section-title {
-            font-family: 'Orbitron'; font-size: 1.5rem; color: var(--neon-gold);
-            margin-bottom: 2.5rem; display: flex; align-items: center;
+        .hero-affiliation {
+            font-size: 0.75rem; letter-spacing: 4px;
+            color: var(--gold); font-weight: 600;
+            text-transform: uppercase; margin-bottom: 12px;
         }
 
-        .section-title::after {
-            content: ""; height: 1px; flex-grow: 1; background: var(--neon-gold);
-            margin-left: 20px; box-shadow: 0 0 8px var(--neon-gold);
+        .hero h1 { font-size: 2.75rem; margin-bottom: 1rem; line-height: 1.2; font-weight: 700; }
+        .hero h1 .highlight { color: var(--gold); font-style: italic; font-weight: 500; }
+
+        .hero-divider { width: 60px; height: 2px; background: var(--gold); margin: 16px auto 24px; }
+
+        .hero p { color: var(--text-dim); max-width: 640px; margin-bottom: 2rem; font-size: 1.05rem; }
+
+        .container { padding: 80px 10%; max-width: 1300px; margin: auto; }
+        .container.alt { background: var(--bg-soft); max-width: none; }
+        .container.alt > * { max-width: 1300px; margin-left: auto; margin-right: auto; }
+
+        .section-title { font-size: 1.75rem; margin-bottom: 0.5rem; text-align: center; font-weight: 600; }
+
+        .section-subtitle {
+            text-align: center; color: var(--text-dim);
+            font-size: 0.85rem; letter-spacing: 3px;
+            text-transform: uppercase; margin-bottom: 3rem; font-weight: 500;
         }
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
-        
+        .section-subtitle::before, .section-subtitle::after {
+            content: "—"; margin: 0 12px; color: var(--gold);
+        }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.75rem; }
+
         .card {
-            background: var(--bg-card); padding: 1.5rem;
-            border: 1px solid #1e293b; border-radius: 4px;
-            transition: 0.3s; position: relative; overflow: hidden;
+            background: var(--bg-card); padding: 2rem;
+            border: 1px solid var(--border);
+            border-top: 3px solid var(--navy);
+            border-radius: 2px;
+            transition: 0.25s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
         }
 
-        .card:hover { border-color: var(--neon-cyan); transform: translateY(-5px); box-shadow: 0 0 15px rgba(0, 243, 255, 0.1); }
+        .card:hover {
+            border-top-color: var(--gold);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(26, 46, 74, 0.08);
+        }
 
-        .tag { font-family: 'Orbitron'; font-size: 0.65rem; color: var(--neon-cyan); margin-bottom: 0.5rem; display: block; }
+        .card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; line-height: 1.35; }
 
-        .stat-highlight { color: var(--neon-cyan); font-weight: bold; font-family: 'Orbitron'; font-size: 0.9rem; margin-top: 10px; display: block; }
+        .tag {
+            font-size: 0.7rem; color: var(--gold);
+            letter-spacing: 2px; text-transform: uppercase;
+            font-weight: 600; margin-bottom: 0.75rem; display: block;
+        }
+
+        .stat-highlight {
+            color: var(--navy); font-weight: 600; font-size: 0.9rem;
+            margin-top: 14px; display: block;
+            padding-top: 12px; border-top: 1px solid var(--border);
+        }
+
+        .card-detail { font-size: 0.92rem; margin: 8px 0; color: var(--text-main); }
+        .card-detail .label { color: var(--gold); font-weight: 700; font-size: 0.78rem; margin-right: 4px; }
 
         .skill-pill {
-            display: inline-block; padding: 4px 12px; border: 1px solid var(--border-glow);
-            font-size: 0.8rem; margin: 4px; border-radius: 2px; color: var(--text-dim);
+            display: inline-block; padding: 6px 14px;
+            border: 1px solid var(--border-strong);
+            background: var(--bg-main);
+            font-size: 0.85rem; margin: 4px 4px 4px 0;
+            border-radius: 2px; color: var(--navy); font-weight: 500;
         }
 
         .btn-action {
-            display: inline-block; padding: 12px 30px; border: 2px solid var(--neon-cyan);
-            color: var(--neon-cyan); font-family: 'Orbitron'; text-decoration: none;
-            transition: 0.3s; margin-top: 20px; background: transparent;
-            box-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
+            display: inline-block; padding: 12px 32px;
+            background: var(--navy); color: #fff;
+            font-weight: 600; letter-spacing: 1.5px;
+            font-size: 0.85rem; text-decoration: none;
+            transition: 0.25s; border: 2px solid var(--navy);
+            text-transform: uppercase;
         }
 
-        .btn-action:hover { background: var(--neon-cyan); color: #000; box-shadow: 0 0 25px var(--neon-cyan); }
+        .btn-action:hover { background: var(--gold); border-color: var(--gold); }
 
-        @media (max-width: 768px) { .hero h1 { font-size: 2.2rem; } }
+        .leadership-card { background: var(--navy); color: #fff; padding: 2rem; }
+        .leadership-card h3 { color: #fff; }
+        .leadership-card .tag { color: var(--gold-soft); }
+        .leadership-card .stat-highlight { color: var(--gold-soft); border-top-color: rgba(255,255,255,0.15); }
+
+        .skills-layout { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: start; }
+
+        .skills-block h3 {
+            font-size: 1.1rem; margin-bottom: 1rem;
+            padding-bottom: 8px; border-bottom: 2px solid var(--gold);
+            display: inline-block;
+        }
+
+        footer {
+            padding: 40px 10%; text-align: center;
+            border-top: 2px solid var(--navy);
+            color: var(--text-dim); font-size: 0.8rem;
+            background: var(--bg-soft); letter-spacing: 1px;
+        }
+
+        footer a { color: var(--navy); text-decoration: none; font-weight: 600; margin-top: 8px; display: inline-block; }
+        footer a:hover { color: var(--gold); }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.9rem; }
+            .skills-layout { grid-template-columns: 1fr; }
+            .nav-contact { display: none; }
+        }
     </style>
 </head>
 <body>
 
     <nav>
         <div class="nav-logo">DANIEL BEN DOV</div>
-        <div style="font-size: 0.7rem; letter-spacing: 1px; color: var(--text-dim);">Email: danielbendov12@gmail.com</div>
+        <div class="nav-contact">danielbendov12@gmail.com</div>
     </nav>
 
     <header class="hero">
-        <img src="photo.jpg" alt="" class="profile-photo">
-        
-        <span style="font-family: 'Orbitron'; font-size: 0.8rem; letter-spacing: 5px; color: var(--neon-gold);">RUTGERS UNIVERSITY</span>
-        <h1><span class="highlight">Accounting</span> and <span class="highlight">Data Entry</span></h1>
-        <p style="color: var(--text-dim); max-width: 700px; margin-bottom: 1.5rem;">
-            Accounting Student at Rutgers University, predictive market research, and organizational leadership.
-        </p>
-        <a href="https://www.linkedin.com/in/danielbendov/" target="_blank" class="btn-action">VIEW LINKEDIN PROFILE</a>
+        <img src="photo.jpg" alt="Daniel Ben Dov" class="profile-photo">
+        <span class="hero-affiliation">Rutgers University</span>
+        <h1>Accounting <span class="highlight">&amp;</span> Tax Professional</h1>
+        <div class="hero-divider"></div>
+        <p>Accounting student at Rutgers University with hands-on experience in tax preparation, prediction-market research, and organizational leadership.</p>
+        <a href="https://www.linkedin.com/in/danielbendov/" target="_blank" class="btn-action">View LinkedIn Profile</a>
     </header>
 
     <section class="container">
-        <h2 class="section-title">Academic Modules</h2>
+        <h2 class="section-title">Education</h2>
+        <p class="section-subtitle">Academic Background</p>
         <div class="grid">
             <div class="card">
-                <span class="tag">RUTGERS UNIVERSITY</span>
+                <span class="tag">Rutgers University</span>
                 <h3>Bachelor of Science, Accounting</h3>
-                <p class="stat-highlight">Expected Graduation: May 2027</p>
-                <p style="font-size: 0.8rem; margin-top: 10px; color: var(--text-dim);">Relevant Coursework: Financial Accounting, Intermediate Accounting</p>
+                <p class="card-detail">Relevant coursework: Financial Accounting, Intermediate Accounting I &amp; II</p>
+                <span class="stat-highlight">Expected Graduation — May 2027</span>
             </div>
             <div class="card">
-                <span class="tag">BERGEN COMMUNITY COLLEGE</span>
-                <h3>A.S. Business Administration</h3>
-                <p class="stat-highlight">Sept 2023 - June 2025</p>
-                <p style="font-size: 0.8rem; margin-top: 10px; color: var(--text-dim);">Proficiency: Microsoft Excel and Word</p>
+                <span class="tag">Bergen Community College</span>
+                <h3>A.S., Business Administration</h3>
+                <p class="card-detail">Proficiency in Microsoft Excel and Word; foundational coursework in business and finance.</p>
+                <span class="stat-highlight">September 2023 — June 2025</span>
             </div>
         </div>
     </section>
 
-    <section class="container" style="background: rgba(0, 243, 255, 0.02);">
-        <h2 class="section-title">Professional Mission History</h2>
+    <section class="container alt">
+        <h2 class="section-title">Professional Experience</h2>
+        <p class="section-subtitle">Tax &amp; Research</p>
         <div class="grid">
             <div class="card">
-                <span class="tag">NISONOFF & QUADREL</span>
-                <h3>Tax Preparer & Data Entry</h3>
-                <p style="font-size: 0.85rem; margin: 10px 0;">[S] Compliance and data integrity for income tax returns.</p>
-                <p style="font-size: 0.85rem; margin-bottom: 10px;">[A] Utilized UltraTax for precise entry and quality reviews to ensure IRS standard compliance.</p>
-                <p class="stat-highlight">[R] Optimized accuracy and client intake support.</p>
+                <span class="tag">Nisonoff &amp; Quadrel</span>
+                <h3>Tax Preparer &amp; Data Entry</h3>
+                <p class="card-detail"><span class="label">Situation</span>Compliance and data integrity for individual income tax returns.</p>
+                <p class="card-detail"><span class="label">Action</span>Utilized UltraTax for precise data entry and quality reviews to ensure IRS-standard compliance.</p>
+                <span class="stat-highlight">Optimized accuracy and supported client intake</span>
             </div>
-
             <div class="card">
-                <span class="tag">RUTGERS RESEARCH</span>
+                <span class="tag">Rutgers Research</span>
                 <h3>Undergraduate Researcher</h3>
-                <p style="font-size: 0.85rem; margin: 10px 0;">[S] Researching the taxation of prediction markets.</p>
-                <p style="font-size: 0.85rem; margin-bottom: 10px;">[A] Assisting with manuscript development on taxation of prediction markets.</p>
-                <p class="stat-highlight">[R] Contributing to academic tax literature.</p>
+                <p class="card-detail"><span class="label">Situation</span>Researching the taxation of prediction markets.</p>
+                <p class="card-detail"><span class="label">Action</span>Assisting with manuscript development on tax treatment of prediction-market activity.</p>
+                <span class="stat-highlight">Contributing to academic tax literature</span>
             </div>
-
             <div class="card">
-                <span class="tag">IRS VITA</span>
+                <span class="tag">IRS VITA Program</span>
                 <h3>Volunteer Tax Preparer</h3>
-                <p style="font-size: 0.85rem; margin: 10px 0;">[S] Community federal and state tax preparation via Tax Slayer Pro.</p>
-                <p style="font-size: 0.85rem; margin-bottom: 10px;">[A] Resolved prior-year filing issues through IRS guidance research.</p>
-                <p class="stat-highlight">[R] Secured proper credits and deductions for local clients.</p>
+                <p class="card-detail"><span class="label">Situation</span>Community federal and state tax preparation using TaxSlayer Pro.</p>
+                <p class="card-detail"><span class="label">Action</span>Resolved prior-year filing issues through guided IRS research.</p>
+                <span class="stat-highlight">Secured proper credits and deductions for clients</span>
             </div>
         </div>
     </section>
 
     <section class="container">
-        <h2 class="section-title">Command & Capabilities</h2>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
-            <div>
-                <h3 style="margin-bottom: 1rem; font-family: 'Orbitron'; font-size: 1rem; color: var(--neon-cyan);">Tech Stack</h3>
-                <div class="skill-pill">UltraTax</div>
-                <div class="skill-pill">Tax Slayer Pro</div>
-                <div class="skill-pill">Microsoft Excel</div>
-                <div class="skill-pill">Microsoft Word</div>
-                <div class="skill-pill">IRS-VITA/TCE Certification</div>
-                <div class="skill-pill">Fluent Hebrew</div>
+        <h2 class="section-title">Skills &amp; Leadership</h2>
+        <p class="section-subtitle">Technical Proficiency</p>
+        <div class="skills-layout">
+            <div class="skills-block">
+                <h3>Software &amp; Certifications</h3>
+                <div style="margin-top: 16px;">
+                    <div class="skill-pill">UltraTax</div>
+                    <div class="skill-pill">TaxSlayer Pro</div>
+                    <div class="skill-pill">Microsoft Excel</div>
+                    <div class="skill-pill">Microsoft Word</div>
+                    <div class="skill-pill">IRS VITA/TCE Certified</div>
+                    <div class="skill-pill">Fluent Hebrew</div>
+                </div>
             </div>
-            <div class="card" style="border-left: 4px solid var(--neon-gold);">
-                <span class="tag">INVESTMENT CLUB - PRESIDENT</span>
-                <h3>BCC Leadership</h3>
-                <p style="font-size: 0.85rem;">Organized weekly strategy meetings and analyzed companies from a stakeholder perspective.</p>
-                <p class="stat-highlight">> 100+ Member Recruitment Success</p>
+            <div class="card leadership-card">
+                <span class="tag">Investment Club — President</span>
+                <h3>Bergen Community College</h3>
+                <p class="card-detail" style="color: rgba(255,255,255,0.85);">Organized weekly strategy meetings and led analysis of companies from a stakeholder perspective.</p>
+                <span class="stat-highlight">100+ members recruited</span>
             </div>
         </div>
     </section>
 
-    <footer style="padding: 40px; text-align: center; border-top: 1px solid #1e293b; color: var(--text-dim); font-size: 0.7rem;">
-        <p style="margin-bottom: 10px;">DANIEL BEN DOV // RUTGERS ACCOUNTING ASSOCIATION // TAMID GROUP // </p>
-        <a href="https://www.linkedin.com/in/danielbendov/" target="_blank" style="color: var(--neon-cyan); text-decoration: none; font-family: 'Orbitron'; font-size: 0.9rem;">[ACCESS LINKEDIN PROFILE]</a>
+    <footer>
+        <p>Daniel Ben Dov &nbsp;·&nbsp; Rutgers Accounting Association &nbsp;·&nbsp; TAMID Group</p>
+        <a href="https://www.linkedin.com/in/danielbendov/" target="_blank">linkedin.com/in/danielbendov</a>
     </footer>
 
 </body>
